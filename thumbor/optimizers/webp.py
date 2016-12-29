@@ -11,7 +11,7 @@ from thumbor.utils import logger
 class Optimizer(BaseOptimizer):
 
     def should_run(self, image_extension, buffer):
-        return image_extension in ['.webm']
+        return image_extension in ['.webp']
 
     def optimize(self, buffer, input_file, output_file):
 
