@@ -45,11 +45,12 @@ class Importer:
     def import_modules(self):
         self.config.validates_presence_of(
             'ENGINE', 'GIF_ENGINE', 'LOADER', 'STORAGE', 'DETECTORS',
-            'FILTERS', 'URL_SIGNER', 'METRICS'
+            'FILTERS', 'URL_SIGNER', 'METRICS','GIF_ENGINE'
         )
 
         self.import_item('ENGINE', 'Engine')
         self.import_item('GIF_ENGINE', 'Engine')
+        self.import_item('WEBP_ENGINE','Engine')
         self.import_item('LOADER')
         self.import_item('STORAGE', 'Storage')
         self.import_item('METRICS', 'Metrics')

@@ -216,7 +216,8 @@ class ContextImporter:
         self.gif_engine = None
         if importer.gif_engine:
             self.gif_engine = importer.gif_engine(context)
-
+        if importer.webp_engine:
+            self.webp_engine = importer.webp_engine(context)
         self.storage = None
         if importer.storage:
             self.storage = importer.storage(context)
