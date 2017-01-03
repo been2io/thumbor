@@ -43,7 +43,7 @@ class Engine(PILEngine):
                 ofile.name,
             ]
             with open(os.devnull) as null:
-                subprocess.call(command, stdin=null,stdout=null)
+                subprocess.call(command, stdin=null,stdout=null,stderr=null)
             with open(ofile.name, 'rb') as f:  # reopen with file thats been changed with the optimizer
               return f.read()
 
@@ -69,7 +69,7 @@ class Engine(PILEngine):
         self.image_size = (144,176)
 
     def draw_rectangle(self, x, y, width, height):
-        raise NotImplementedError()
+        pass
 
     def resize(self, width, height):
         self.width=str(width)
@@ -80,14 +80,11 @@ class Engine(PILEngine):
         pass
 
     def rotate(self, degrees):
-        raise NotImplementedError()
-
+        pass
     def flip_vertically(self):
-        raise NotImplementedError()
-
+        pass
     def flip_horizontally(self):
-        raise NotImplementedError()
-
+        pass
 
 
     def flush_operations(self):
