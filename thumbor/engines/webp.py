@@ -38,10 +38,10 @@ class Engine(PILEngine):
             ofile.close()
             command = [
                 self.context.config.WEBPCONV_PATH,
-                ifile,
+                ifile.name,
                 self.height,
                 self.width,
-                ofile,
+                ofile.name,
             ]
             logger.warn(command)
             with open(os.devnull) as null:
