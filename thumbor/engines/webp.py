@@ -29,7 +29,6 @@ class Engine(PILEngine):
 
     def run_webp(self):
         buffer = self.buffer
-        logger.warn(len(buffer))
         ifile = NamedTemporaryFile(suffix=".webp", delete=False)
         ofile = NamedTemporaryFile(suffix=".webp", delete=False)
         try:
@@ -43,9 +42,8 @@ class Engine(PILEngine):
                 self.width,
                 ofile.name,
             ]
-            logger.warn(command)
             with open(os.devnull) as null:
-                subprocess.call(command, stdin=null)
+                subprocess.call(command, stdin=null,stdout=null)
             with open(ofile.name, 'rb') as f:  # reopen with file thats been changed with the optimizer
               return f.read()
 
@@ -98,7 +96,6 @@ class Engine(PILEngine):
 
     def read(self, extension=None, quality=None):
         self.flush_operations()
-        logger.warn(len(self.buffer))
         return self.buffer
 
     def convert_to_grayscale(self):
