@@ -79,7 +79,7 @@ class Engine(PILEngine):
         self.image_size=(self.width,self.height)
 
     def crop(self, left, top, right, bottom):
-        raise NotImplementedError()
+        pass
 
     def rotate(self, degrees):
         raise NotImplementedError()
