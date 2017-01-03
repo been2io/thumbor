@@ -43,6 +43,7 @@ class Engine(PILEngine):
                 self.width,
                 ofile,
             ]
+            logger.warn(command)
             with open(os.devnull) as null:
                 subprocess.call(command, stdin=null)
             with open(ofile.name, 'rb') as f:  # reopen with file thats been changed with the optimizer
@@ -75,6 +76,7 @@ class Engine(PILEngine):
     def resize(self, width, height):
         self.width=str(width)
         self.height=str(height)
+        self.image_size=(self.width,self.height)
 
     def crop(self, left, top, right, bottom):
         raise NotImplementedError()
