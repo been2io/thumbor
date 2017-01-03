@@ -43,9 +43,9 @@ class Engine(PILEngine):
                 self.width,
                 ofile,
             ]
-           # with open(os.devnull) as null:
-            #    subprocess.call(command, stdin=null)
-            with open(ifile.name, 'rb') as f:  # reopen with file thats been changed with the optimizer
+            with open(os.devnull) as null:
+                subprocess.call(command, stdin=null)
+            with open(ofile.name, 'rb') as f:  # reopen with file thats been changed with the optimizer
               return f.read()
 
         finally:
@@ -63,7 +63,6 @@ class Engine(PILEngine):
     def load(self, buffer, extension):
         self.extension = extension
         self.buffer = buffer
-
         self.image = ''
         self.update_image_info()
         self.width='144'
@@ -95,11 +94,8 @@ class Engine(PILEngine):
         self.buffer = self.run_webp()
        # self.image_size=len(self.buffer)
 
-
     def read(self, extension=None, quality=None):
         self.flush_operations()
-
-
         logger.warn(len(self.buffer))
         return self.buffer
 
