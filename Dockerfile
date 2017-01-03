@@ -5,4 +5,5 @@ COPY . /thumbor
 VOLUME /thumbor
 WORKDIR /thumbor
 RUN python setup.py install
+RUN cp bin/webpconvertor /usr/local/bin/webp
 ENTRYPOINT thumbor -c thumbor/thumbor.conf
